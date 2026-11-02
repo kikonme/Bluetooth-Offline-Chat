@@ -46,10 +46,12 @@ jobs:
             "platforms;android-35" \
             "build-tools;35.0.0"
 
-      - name: Build APK
-        run: 
-        gradle :app:assembleDebug
+      
+      - name: Check Gradle Projects
+        run: gradle projects
 
+      - name: Check App Tasks
+        run: gradle :app:tasks --all
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
