@@ -47,11 +47,14 @@ jobs:
             "build-tools;35.0.0"
 
       
-      - name: Check Gradle Projects
+            - name: Show Gradle Projects
         run: gradle projects
 
-      - name: Check App Tasks
+      - name: Show App Build Tasks
         run: gradle :app:tasks --all
+
+      - name: Build APK
+        run: gradle :app:assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
